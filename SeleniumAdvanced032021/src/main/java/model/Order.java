@@ -4,25 +4,25 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Order {
-    List<OrderLine> orderLines;
-    BigDecimal totalOrderCost;
+    private List<OrderLine> orderLines;
+    private BigDecimal totalOrderCost;
 
     public void addNewOrderLine(OrderLine orderLineToAdd){
-        if (isProductAlreadyInCart(orderLineToAdd.product.name)) {
+        if (isProductAlreadyInCart(orderLineToAdd.getProduct().getName())) {
             for (OrderLine line : orderLines){
-                if(line.product.name.equals(orderLineToAdd.product.name)){
-                    line.quantity.add(orderLineToAdd.quantity);
+                if(line.getProduct().getName().equals(orderLineToAdd.getProduct().getName())){
+                    line.addQuantity(orderLineToAdd.getQuantity());
                 }
             }
         } else{
-            orderLines.add(orderLine);
+            orderLines.add(orderLineToAdd);
         }
-        totalOrderCost = totalOrderCost.add(orderLine.totalOrderLineCost);
+        totalOrderCost = totalOrderCost.add(orderLineToAdd.getTotalOrderLineCost());
     }
 
     public boolean isProductAlreadyInCart(String name){
         for (OrderLine line : orderLines){
-            if(line.product.name.equals(name)){
+            if(line.getProduct().getName().equals(name)){
                 return true;
             }
         }

@@ -3,7 +3,37 @@ package model;
 import java.math.BigDecimal;
 
 public class OrderLine {
-    Product product;
-    int quantity;
-    BigDecimal  totalOrderLineCost;
+    private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public BigDecimal getTotalOrderLineCost() {
+        return totalOrderLineCost;
+    }
+
+    public void setTotalOrderLineCost(BigDecimal totalOrderLineCost) {
+        this.totalOrderLineCost = totalOrderLineCost;
+    }
+
+    private int quantity;
+    private  BigDecimal  totalOrderLineCost;
+
+    public void addQuantity(int quantity){
+        this.quantity  += quantity;
+        totalOrderLineCost = product.getPrice().multiply(new BigDecimal(quantity));
+    }
 }
