@@ -11,6 +11,12 @@ public class OrderLine {
         this.totalOrderLineCost = product.getPrice().multiply(new BigDecimal(quantity));
     }
 
+    public OrderLine(Product product, int quantity, BigDecimal totalOrderLineCost) {
+        this.product = product;
+        this.quantity = quantity;
+        this.totalOrderLineCost = totalOrderLineCost;
+    }
+
     public Product getProduct() {
         return product;
     }

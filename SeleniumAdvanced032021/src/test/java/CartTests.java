@@ -14,7 +14,7 @@ public class CartTests extends TestBase {
         getDriver().get("http://5.196.7.235/");
 
         new ProductsGridComponent(getDriver())
-                .getRandomItem ()
+                .getRandomItem()
                 .open();
 
         ProductDetailsPage prodPage = new ProductDetailsPage(getDriver());
