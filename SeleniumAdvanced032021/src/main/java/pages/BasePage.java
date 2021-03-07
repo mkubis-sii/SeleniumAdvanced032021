@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.sound.midi.Soundbank;
+import java.util.List;
+import java.util.Random;
 
 public class BasePage {
     public BasePage(WebDriver driver) {
@@ -30,5 +32,10 @@ public class BasePage {
         element.clear();
         System.out.println("Wpisuję tekst " + text);
         element.sendKeys(text);
+    }
+
+    public WebElement getRandomElement(List<WebElement> elements){
+        Random rnd = new Random();
+        return elements.get(rnd.nextInt(elements.size()-1));
     }
 }
