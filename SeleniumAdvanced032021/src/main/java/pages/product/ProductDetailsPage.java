@@ -3,9 +3,12 @@ package pages.product;
 import model.Order;
 import model.OrderLine;
 import model.Product;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BasePage;
 
 import java.math.BigDecimal;
@@ -47,6 +50,8 @@ public class ProductDetailsPage extends BasePage {
     public void addToBasket(Order order){
         order.addNewOrderLine(toOrderLine());
         addProductBtn.click();
+        new WebDriverWait(getDriver(), 10).until(
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")));
     }
 
     public OrderLine toOrderLine(){
