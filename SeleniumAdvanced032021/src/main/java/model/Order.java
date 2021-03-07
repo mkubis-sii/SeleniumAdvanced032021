@@ -28,4 +28,21 @@ public class Order {
         }
         return false;
     }
+
+//    @Getter
+//    public class Order {
+//
+//        private Map<Product, OrderLine> productOrderLines = new HashMap<>();
+//        private BigDecimal totalCost;
+//
+//        public void addProduct(Product product) {
+//            if (productOrderLines.containsKey(product)) {
+//                productOrderLines.get(product).addOneProduct();
+//            } else {
+//                productOrderLines.put(product, OrderLine.newLineWith(product));
+//            }
+//            this.totalCost = this.totalCost.add(product.getPrice());
+//        }
+//
+//    }
 }
