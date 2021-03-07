@@ -51,7 +51,7 @@ public class ProductDetailsPage extends BasePage {
         order.addNewOrderLine(toOrderLine());
         addProductBtn.click();
         new WebDriverWait(getDriver(), 10).until(
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("")));
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#myModalLabel")));
     }
 
     public OrderLine toOrderLine(){

@@ -1,6 +1,5 @@
 package pages.product;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,7 +13,7 @@ public class ProductsGridItemComponent {
     @FindBy(css = ".product-title")
     private WebElement productName;
 
-    public void open(){
+    public void open() {
         productName.click();
     }
 

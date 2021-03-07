@@ -1,11 +1,17 @@
 package model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
     private List<OrderLine> orderLines;
     private BigDecimal totalOrderCost;
+
+    public Order() {
+        orderLines = new ArrayList<>();
+        totalOrderCost = BigDecimal.ZERO;
+    }
 
     public void addNewOrderLine(OrderLine orderLineToAdd){
         if (isProductAlreadyInCart(orderLineToAdd.getProduct().getName())) {
