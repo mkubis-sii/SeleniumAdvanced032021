@@ -36,10 +36,10 @@ public class OrderLine {
     }
 
     private int quantity;
-    private  BigDecimal  totalOrderLineCost;
+    private BigDecimal totalOrderLineCost;
 
-    public void addQuantity(int quantity){
-        this.quantity  += quantity;
+    public void addQuantity(int quantityToAdd) {
+        quantity += quantityToAdd;
         totalOrderLineCost = product.getPrice().multiply(new BigDecimal(quantity));
     }
 }

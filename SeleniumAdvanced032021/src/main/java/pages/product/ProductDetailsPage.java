@@ -30,31 +30,31 @@ public class ProductDetailsPage extends BasePage {
     @FindBy(css = ".add-to-cart")
     private WebElement addProductBtn;
 
-    public String getProductName(){
+    public String getProductName() {
         return nameLabel.getText();
     }
 
-    public BigDecimal getProductPrice(){
-        return new BigDecimal(priceLabel.getText().replace("$",""));
+    public BigDecimal getProductPrice() {
+        return new BigDecimal(priceLabel.getText().replace("$", ""));
     }
 
-    public void setQuantity(int quantity){
+    public void setQuantity(int quantity) {
         quantityInput.clear();
         quantityInput.sendKeys(String.valueOf(quantity)); // 5 -> "5"
     }
 
-    public int getProductQuantity(){
+    public int getProductQuantity() {
         return Integer.parseInt(quantityInput.getAttribute("value"));
     }
 
-    public void addToBasket(Order order){
+    public void addToBasket(Order order) {
         order.addNewOrderLine(toOrderLine());
         addProductBtn.click();
         new WebDriverWait(getDriver(), 10).until(
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#myModalLabel")));
     }
 
-    public OrderLine toOrderLine(){
+    public OrderLine toOrderLine() {
         return new OrderLine(new Product(getProductPrice(), getProductName()),
                 getProductQuantity());
     }

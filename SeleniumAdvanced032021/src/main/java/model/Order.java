@@ -13,22 +13,22 @@ public class Order {
         totalOrderCost = BigDecimal.ZERO;
     }
 
-    public void addNewOrderLine(OrderLine orderLineToAdd){
+    public void addNewOrderLine(OrderLine orderLineToAdd) {
         if (isProductAlreadyInCart(orderLineToAdd.getProduct().getName())) {
-            for (OrderLine line : orderLines){
-                if(line.getProduct().getName().equals(orderLineToAdd.getProduct().getName())){
+            for (OrderLine line : orderLines) {
+                if (line.getProduct().getName().equals(orderLineToAdd.getProduct().getName())) {
                     line.addQuantity(orderLineToAdd.getQuantity());
                 }
             }
-        } else{
+        } else {
             orderLines.add(orderLineToAdd);
         }
         totalOrderCost = totalOrderCost.add(orderLineToAdd.getTotalOrderLineCost());
     }
 
-    public boolean isProductAlreadyInCart(String name){
-        for (OrderLine line : orderLines){
-            if(line.getProduct().getName().equals(name)){
+    public boolean isProductAlreadyInCart(String name) {
+        for (OrderLine line : orderLines) {
+            if (line.getProduct().getName().equals(name)) {
                 return true;
             }
         }

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.sound.midi.Soundbank;
 import java.util.List;
 import java.util.Random;
 
@@ -17,25 +16,24 @@ public class BasePage {
 
     private WebDriver driver;
 
-    public WebDriver getDriver() {
+    protected WebDriver getDriver() {
         return driver;
     }
 
-    public void click(WebElement element){
-        new WebDriverWait(getDriver(),10)
-                .until(c-> element.isEnabled());
+    protected void click(WebElement element) {
+        new WebDriverWait(getDriver(), 10)
+                .until(c -> element.isEnabled());
         System.out.println("Klikam w przycisk " + element.getText());
         element.click();
     }
 
-    public void sendKeys(WebElement element, String text){
+    protected void sendKeys(WebElement element, String text) {
         element.clear();
         System.out.println("Wpisuję tekst " + text);
         element.sendKeys(text);
     }
 
-    public WebElement getRandomElement(List<WebElement> elements){
-        Random rnd = new Random();
-        return elements.get(rnd.nextInt(elements.size()-1));
+    protected WebElement getRandomElement(List<WebElement> elements) {
+        return elements.get(new Random().nextInt(elements.size()));// losowanie z <0,8)
     }
 }

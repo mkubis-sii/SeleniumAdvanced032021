@@ -5,7 +5,7 @@ import model.Order;
 public class CartPage {
 
 
-    public Order toOrder(){
+    public Order toOrder() {
         return new Order();
     }
 }

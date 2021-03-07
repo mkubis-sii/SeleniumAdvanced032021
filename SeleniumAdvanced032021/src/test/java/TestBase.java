@@ -1,5 +1,4 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
@@ -9,12 +8,12 @@ public class TestBase {
 
     private WebDriver driver;
 
-    public WebDriver getDriver(){
+    public WebDriver getDriver() {
         return driver;
     }
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         System.setProperty("webdriver.chrome.driver",
                 "src/main/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
@@ -23,7 +22,7 @@ public class TestBase {
     }
 
     @AfterMethod
-    public void cleanUp(){
+    public void cleanUp() {
         driver.quit();
     }
 }
