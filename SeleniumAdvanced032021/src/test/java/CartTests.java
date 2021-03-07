@@ -30,8 +30,8 @@ public class CartTests extends TestBase {
         CartPage cartPage = new CartPage(getDriver());
         Order orderDisplayedInCart = cartPage.toOrder();
 
-        Assertions.assertThat(expectedOrder)
-                .isEqualToComparingFieldByFieldRecursively(orderDisplayedInCart);
+        Assertions.assertThat(orderDisplayedInCart)
+                .isEqualToComparingFieldByFieldRecursively(expectedOrder);
     }
 
     @Test
