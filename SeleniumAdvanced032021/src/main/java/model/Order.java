@@ -13,6 +13,11 @@ public class Order {
         totalOrderCost = BigDecimal.ZERO;
     }
 
+    public Order(List<OrderLine> orderLines , BigDecimal totalOrderCost) {
+        this.orderLines = orderLines;
+        this.totalOrderCost = totalOrderCost;
+    }
+
     public void addNewOrderLine(OrderLine orderLineToAdd) {
         if (isProductAlreadyInCart(orderLineToAdd.getProduct().getName())) {
             for (OrderLine line : orderLines) {

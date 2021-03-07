@@ -16,16 +16,18 @@ public class ProductsGridComponent extends BasePage {
     @FindBy(css = "article")
     private List<WebElement> allItems;
 
-    public ProductsGridItemComponent getRandomItem() {
-        return new ProductsGridItemComponent(getRandomElement(allItems));
-    }
-
     public List<ProductsGridItemComponent> getAllItems() {
         return allItems
                 .stream()
                 .map(ProductsGridItemComponent::new)
                 .collect(Collectors.toList());
     }
+
+    public ProductsGridItemComponent getRandomItem() {
+        return new ProductsGridItemComponent(getRandomElement(allItems));
+    }
+
+
 
     // prostsza forma zapisu metody:
 //    public List<ProductsGridItemComponent> getAllItems() {

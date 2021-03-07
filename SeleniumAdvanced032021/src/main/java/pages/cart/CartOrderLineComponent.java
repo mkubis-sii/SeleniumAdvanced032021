@@ -26,16 +26,19 @@ public class CartOrderLineComponent {
     @FindBy(css = "span.price")
     private WebElement price;
 
-    public String getName(){
+    public String getName() {
         return name.getText();
     }
-    public int getQuantity(){
+
+    public int getQuantity() {
         return Integer.parseInt(quantity.getAttribute("value"));
     }
-    public BigDecimal getPrice(){
+
+    public BigDecimal getPrice() {
         return new BigDecimal(price.getText().replace("$", ""));
     }
-    public BigDecimal getTotalPrice(){
+
+    public BigDecimal getTotalPrice() {
         return new BigDecimal(totalPrice.getText().replace("$", ""));
     }
 
