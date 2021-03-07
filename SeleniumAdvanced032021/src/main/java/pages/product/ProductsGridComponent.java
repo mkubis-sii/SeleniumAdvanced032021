@@ -19,12 +19,12 @@ public class ProductsGridComponent extends BasePage {
     public List<ProductsGridItemComponent> getAllItems() {
         return allItems
                 .stream()
-                .map(ProductsGridItemComponent::new)
+                .map(c -> new ProductsGridItemComponent(getDriver(), c))
                 .collect(Collectors.toList());
     }
 
     public ProductsGridItemComponent getRandomItem() {
-        return new ProductsGridItemComponent(getRandomElement(allItems));
+        return new ProductsGridItemComponent(getDriver(), getRandomElement(allItems));
     }
 
 

@@ -38,9 +38,10 @@ public class ProductDetailsPage extends BasePage {
         return new BigDecimal(priceLabel.getText().replace("$", ""));
     }
 
-    public void setQuantity(int quantity) {
+    public ProductDetailsPage setQuantity(int quantity) {
         quantityInput.clear();
         quantityInput.sendKeys(String.valueOf(quantity)); // 5 -> "5"
+        return this;
     }
 
     public int getProductQuantity() {
