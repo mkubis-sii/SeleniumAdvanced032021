@@ -14,7 +14,22 @@ public class CartTests extends TestBase {
         getDriver().get("http://5.196.7.235/");
 
         new ProductsGridComponent(getDriver())
-                .getRandomItem()
+                .getRandomItem ()
+                .open();
+
+        ProductDetailsPage prodPage = new ProductDetailsPage(getDriver());
+        prodPage.setQuantity(new Random().nextInt(5) + 1); // 1-6
+        prodPage.addToBasket(expectedOrder);
+
+    }
+
+    @Test
+    public void addFirstProductToBasket() {
+        Order expectedOrder = new Order();
+        getDriver().get("http://5.196.7.235/");
+        new ProductsGridComponent(getDriver())
+                .getAllItems()
+                .get(1)
                 .open();
 
         ProductDetailsPage prodPage = new ProductDetailsPage(getDriver());
